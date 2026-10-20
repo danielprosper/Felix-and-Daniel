@@ -12,191 +12,239 @@
 
      <section>
         <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;}
-.footer{
-    background-color: darkslategray;
-    color: silver;
-    padding: 50px 20px 0 20px;
-}
-.footer-inner{
-    max-width: 1050px;
-    margin: 0 auto;
-}
-.logo{
-    text-align: center; margin-bottom: 40px;
-}
-.footer-grid{
+        .logo{
+            background-image: url('logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left;
+            width: 50px;
+            height: 50px;
+        }
+        .footer {
+            background-color: #1a1c23;
+            color: #a0a5bcd0;
+            padding: 60px 20px 30px 20px;
+            font-size: 14px;
+        }
 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px
-}
-.footer-col h4 {
-    color: white;
-    font-size: 16px;
-    margin-bottom: 14px;
-    font-weight: 600;
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-}
-.footer-col a {
-    display: block;
-    color:silver;
-    text-decoration: none;
-    font-size: 13px;
-    line-height:22px
-}
-.footer-col a:hover {
-    color: white;
-}
-.mt { margin-top: 24px;}
-.lang-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-top: 40px;
-}
-.lang-btn {
-    background: dimgray;
-    border: 1px solid gray;
-    color: gainsboro;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
 
-}
-.lang-dropdown {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    margin-bottom: 8px;
-    background: dimgray;
-    border: 1px solid gray;
-    border-radius: 8px;
-    width: 180px;
-    display: none;
-    overflow: hidden;
-    z-index: 10;
-}
-.lang-dropdown.show { display: block;}
-.lang-dropdown a {
-    display: block;
-    padding: 8px 12px;
-    font-size: 13px;
-    color: silver;
-    text-decoration: none;
-}
-.lang-dropdown a:hover {background: slateblue; color: white;}
-.divider {
-    height: 1px;
-    background: gray;
-    margin:18px 0;
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
 
-}
-.footer-desc {
-    font-size: 12.5px;
-    line-height: 18px;
-    max-width: 850px;
-}
-.footer-desc p { margin-bottom: 12px;}
-.socials {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-    font-size: 13px;
-}
-.socials a { color: silver; text-decoration: none;}
-.socials a:hover { color:white;}
-.footer-bottom {
-    background: black;
-    text-align: center;
-    padding:14px;
-    font-size: 12px;
-    color: darkgray;
-    margin-top: 30px;
-    margin-left: -20px;
-    margin-right: -20px;
-}
-.footer-bottom strong { color: white; letter-spacing:0.5px;}
-@media(max-width: 700px){.footer-grid  {grid-template-columns: 1fr;}
- }
-</style>
-        <footer class="footer">
-            <div class="footer-inner">
-                <div class="logo">
-                    <h2 style="color:white; font-weight: 700; letter-spacing: -1px;">odoo</h2>
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #a0a5bc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        /* Language Dropdown Container */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .dropbtn {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: white;
+            padding: 10px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background-color: #262935;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            z-index: 1;
+            margin-bottom: 6px;
+        }
+
+        .dropdown-content a {
+            color: #a0a5bc;
+            padding: 10px 14px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: #fff;
+        }
+
+        /* Show the dropdown menu on click/focus (Controlled via JS or toggle class) */
+        .language-selector.active .dropdown-content {
+            display: block;
+        }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+
+        .footer-bottom-text {
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .social-icons a {
+            color: #a0a5bc;
+            text-decoration: none;
+        }
+
+        .footer-brand {
+            text-align: center;
+            font-size: 13px;
+            color: #72768d;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+    </style>
+    <div class="logo">
+        <img src="https://odoocdn.com/openerp_website/static/src/img/2016/logos/odoo_logo.svg" alt="logo">
+    </div>
+                    
+ <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+
+                <h4>Community</h4>
+                <ul>
+                        <li><a href="https://www.odoo.com/page/docs">Tutorials</a></li>
+                        <li><a href="https://www.odoo.com/page/docs">Documentation</a></li>
+                        <li><a href="#">Forum</a></li>
+                    </ul>
+                    <h4 style="margin-top: 30px;">Open Source</h4>
+                    <ul>
+                        <li><a href="https://www.odoo.com/page/docs">Download</a></li>
+                        <li><a href="https://www.odoo.com/page/docs">Github</a></li>
+                        <li><a href="https://www.odoo.com/page/docs">Runbot</a></li>
+                        <li><a href="https://www.odoo.com/page/docs">Translations</a></li>
+                    </ul>
                 </div>
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <h4>Community</h4>
-                        <a href=" https://www.odoo.com/slides/all/tag/odoo-tutorials-9">Tutorials</a>
-                         <a href=" https://www.odoo.com/page/docs">Documentation</a> 
-                         <a href=" https://www.odoo.com/forum/help-1">Forum</a>
-                         <h4 class="mt">Open Source</h4>
-                          <a href=" https://www.odoo.com/page/download">Download</a>
-                          <a href=" https://github.com/odoo/odoo">Github</a>
-                           <a href=" https://runbot.odoo.com/">Runbot</a> 
-                           <a href=" https://github.com/odoo/odoo/wiki/Translations">Translation</a>
-                </div>
+
                 <div class="footer-col">
                     <h4>Services</h4>
-     <a href="https://www.odoo.sh/ ">Odoo.sh Hosting</a>
-     <a href="https://www.odoo.com/help ">Support</a>
-     <a href="https://www.odoo.com/help ">Upgrade</a> 
-<a href="https://upgrade.odoo.com/ ">Custom Devlopment</a>
-      <a href=" https://www.odoo.com/education/program">Education</a>
-     <a href="https://www.odoo.com/accounting-firms " style="margin-top: 10px;">Find an Account</a>
-    <a href style="margin-top: 10px;">Find a Partner</a>
- <a href=" https://www.odoo.com/page/about-us">Our company</a>
-    <a href="https://www.odoo.com/page/brand-assets ">Brand Asset/a>
-    <a href=" https://www.odoo.com/contactus">Contact us</a>
-        <a href="https://www.odoo.com/jobs ">Jobs</a>
-        <a href style="margin-top:10px ;">Legal . privacy</a>
-            <a href="https://www.odoo.com/security ">Security</a>
+                    <ul>
+                        <li><a href="https://www.odoo.sh/ ">Odoo.sh Hosting</a></li>
+                        <li><a href="https://www.odoo.com/help">Support</a></li>
+                        <li><a href="https://www.odoo.com/help">Upgrade</a></li>
+                        <li><a href="https://www.odoo.com/help">Custom Developments</a></li>
+                        <li><a href="https://www.odoo.com/help">Education</a></li>
+                        <li><a href="https://www.odoo.com/help">Find an Accountant</a></li>
+                        <li><a href="https://www.odoo.com/help">Find a Partner</a></li>
+                        <li><a href="https://www.odoo.com/help">Become a Partner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About us</h4>
+                    <ul>
+                        <li><a href="#">Our company</a></li>
+                        <li><a href="#">Brand Assets</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Podcast</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Customers</a></li>
+                        <li><a href="#">Legal & Privacy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="lang-wrapper">
-                <select class="lang-btn">lang-btn
-                    <span></span>English<i class="fa-solid fa-caret-down" style="font-size: 10px;"></i>
-                
-                <div class="lang-dropdown" id="lang-dropdown">
-                <option><a href=" https://www.odoo.com/industries/property-management">English</a></option>
-                 <option><a href="https://www.odoo.com/fr_FR/industries/property-management">Francais</a></option> 
-                 <option><a href="https://www.odoo.com/de_DE/industries/property-management">Burundi</a></option> 
-                 <option><a href="https://www.odoo.com/id_ID/industries/property-management">United State</a></option> 
-                <option><a href="https://www.odoo.com/id_ID/industries/property-management">France</a></option> 
-                   <option> <a href="https://www.odoo.com/id_ID/industries/property-management">Nigeria</a></option> 
-             <option> <a href="https://www.odoo.com/id_ID/industries/property-management">Niger</a></option> 
-                   <option> <a href="https://www.odoo.com/id_ID/industries/property-management">Togo</a></option> 
-                   <option> <a href="https://www.odoo.com/id_ID/industries/property-management">Congo</a></option> 
-                  <option> <a href="https://www.odoo.com/id_ID/industries/property-management">Senegal</a></option> 
-                 <option>  <a href="https://www.odoo.com/id_ID/industries/property-management">Egypt</a></option> 
-            
-                    </select>
-                                                                                                                                     </div>
-                                                                                                                                    </div>
+<!-- Language Selector with Multiple Languages Option -->
+        <div class="language-selector" id="langSelector">
+                <select>  <button class="dropbtn">English▾</button>
+                <div class="dropdown-content">
+                   <option><a href="#">English</a></option>
+                   <option> <a href="#">Español</a></option>
+                   <option> <a href="#">Français</a></option>
+                  <option>  <a href="#">Deutsch</a></option>
+                  <option>  <a href="#">Italiano</a></option>
+                   <option> <a href="#">Português</a></option>
+                   <option> <a href="#">中文</a></option>
+                  <option>  <a href="#">日本語</a></option>
+                  
                 </div>
-            <div class="divider"></div>
-            <div class="footer-desc">
-                <p>Odoo is a suite of open source business apps that cover all your company needs: CRM; eCommerce, accounting,inventry,point of sale,project management,etc.</p>
-                <p>Odoo's unique value proposition is to be at the same time every easy to use ans fully integrated.</p>
             </div>
-            <div class="socials">
-                <a href="https://www.facebook.com/odoo "><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://twitter.com/Odoo "><i class="fa-brands fa-x-twiter"></i></a>
-                <a href=" https://www.linkedin.com/company/odoo"><i class="fa-brands fa-linkedin"></i></a>
-                <a href=" https://github.com/odoo/odoo"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.instagram.com/odoo.official "><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@odoo "><i class="fa-brands fa-tiktok"></i></a>
-                <a href=" tel:+3222903490"><i class="fa-solid fa-phone"></i></a>
+            </select>
+ 
+            <hr class="footer-divider">
+
+            <div class="footer-bottom-text">
+                Odoo is a suite of open source business apps that cover all your company needs: CRM, eCommerce, accounting, inventory, point of sale, project management, etc.<br><br>
+                Odoo's unique value proposition is to be at the same time very easy to use and fully integrated.
             </div>
-            <div class="footer-bottom">
-                website made with<strong>ododo</strong>
+
+            <div class="social-icons">
+                <a href="#">f</a>
+                <a href="#">𝕏</a>
+                <a href="#">in</a>
+                <a href="#">git</a>
+                <a href="#">ig</a>
+                <a href="#">tk</a>
             </div>
+
+            <div class="footer-brand">
+                Website made with odoo
             </div>
-        </footer>
+        </div>
+    </footer>
+
+       
+    
         
      </section>
     
